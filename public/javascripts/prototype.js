@@ -51,7 +51,7 @@ function createInfoTable()
    $("#inputs").append(currentBuild);
     currentBuild = '<form action="/addUser" method="post"><div class="form-group">';
     currentBuild += '<label id="uNameLabel" for="name">Name:</label>';
-    currentBuild += '<input class="form-control" id="uNameInput" placeholder="Enter name" name="name"></div>';
+    currentBuild += '<input class="form-control" id="uNameInput" placeholder="Enter yo DAMN name" name="name"></div>';
     currentBuild += '<div class="form-group">';
     currentBuild += '<label id="uTelLabel" for="phone">Phone Number:</label>';
     currentBuild += '<input type="tel" class="form-control" id="uTelInput" placeholder="Enter phone number" name="phone"></div>';
