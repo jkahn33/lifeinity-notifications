@@ -1,1 +1,0 @@
-# lifeinity-notifications
