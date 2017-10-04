@@ -1,10 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Pool = require('pg-pool');
-var pool = new Pool({database:'clientsdb',
-                        user:'root',
-                        password:'abacus',
-                        port:5432});
+var pool = new Pool({database:'guarded-anchorage-11814'});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
