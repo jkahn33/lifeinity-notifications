@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var mongodb = require('mongodb');
+var Pool = require('pg-pool');
+var pool = new Pool({database:'clientsdb',
+                        user:'root',
+                        password:'abacus',
+                        port:5432});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -9,58 +13,26 @@ router.get('/', function(req, res, next) {
 
 router.post('/addDriver', function(req, res){
    console.log("inside the addDriver class!!!!!!!!!!");
-   var MongoClient = mongodb.MongoClient;
-   var url = 'mongodb://localhost:27017/clients';
-
-   MongoClient.connect(url, function(err, db){
+   pool.connect(function(err, client, done){
       if(err){
-         console.log("Unable to connect to server", err);
+         return console.error("error adding to driver pool", err);
       }
-      else{
-         console.log("Connected to db server");
-
-         var collection = db.collection('drivers');
-         var driver1 = {name: req.body.name,
-                         phone: req.body.phone};
-         collection.insert([driver1], function(err, result){
-            if(err){
-               console.log("error");
-            }
-            else{
-               console.log("SUCCESS DRIVER!!!!");
-               // res.redirect("thelist");
-            }
-            db.close();
-         });
-      }
+      client.query('INSERT INTO drivers(name, phone) VALUES($1, $2)',
+         [req.body.name, req.body.phone]);
+      done();
+      res.redirect('/');
    });
 });
 router.post('/addUser', function(req, res){
    console.log("inside the addDriver class!!!!!!!!!!");
-   var MongoClient = mongodb.MongoClient;
-   var url = 'mongodb://localhost:27017/clients';
-
-   MongoClient.connect(url, function(err, db){
+   pool.connect(function(err, client, done){
       if(err){
-         console.log("Unable to connect to server", err);
+         return console.error("error adding to users pool", err);
       }
-      else{
-         console.log("Connected to db server");
-
-         var collection = db.collection('users');
-         var user1 = {name: req.body.name,
-                         phone: req.body.phone};
-         collection.insert([user1], function(err, result){
-            if(err){
-               console.log("error");
-            }
-            else{
-               console.log("SUCCESS USER!!!!");
-               // res.redirect("thelist");
-            }
-            db.close();
-         });
-      }
+      client.query('INSERT INTO users(name, phone) VALUES($1, $2)',
+         [req.body.name, req.body.phone]);
+      done();
+      res.redirect('/');
    });
 });
 
