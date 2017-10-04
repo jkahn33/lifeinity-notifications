@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var Pool = require('pg-pool');
-var pool = new Pool();
+var pg = require('pg');
+// var pool = new Pool();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -9,8 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/addDriver', function(req, res){
-   console.log("inside the addDriver class!!!!!!!!!!");
-   pool.connect(function(err, client, done){
+   pg.connect(process.env.DATABASE_URL, function(err, client, done){
       if(err){
          return console.error("error adding to driver pool", err);
       }
@@ -21,10 +20,9 @@ router.post('/addDriver', function(req, res){
    });
 });
 router.post('/addUser', function(req, res){
-   console.log("inside the addDriver class!!!!!!!!!!");
-   pool.connect(function(err, client, done){
+   pg.connect(process.env.DATABASE_URL, function(err, client, done){
       if(err){
-         return console.error("error adding to users pool", err);
+         return console.error("error adding to user pool", err);
       }
       client.query('INSERT INTO users(name, phone) VALUES($1, $2)',
          [req.body.name, req.body.phone]);
