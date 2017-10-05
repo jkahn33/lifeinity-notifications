@@ -3,6 +3,22 @@ var dName;
 var dNum;
 var cName;
 var cNum;
+function checkDPhone(){
+   if(isNaN(document.dTelInput.value) === true){
+      return false;
+   }
+   else{
+      return true;
+   }
+}
+function checkUPhone(){
+   if(isNaN(document.uTelInput.value) === true){
+      return false;
+   }
+   else{
+      return true;
+   }
+}
 function createInfoTable()
 {
    dName = false;
@@ -36,7 +52,7 @@ function createInfoTable()
    currentBuild += '<div class="form-group">';
    currentBuild += '<label id="dTelLabel" for="phone">Phone Number:</label>';
    currentBuild += '<input type="tel" class="form-control" id="dTelInput" placeholder="Enter phone number" name="phone">';
-   currentBuild += '</div><button type="submit" id="dSubmit" class="btn btn-primary">Submit</button></form>';
+   currentBuild += '</div><button type="submit" id="dSubmit" class="btn btn-primary" onSubmit="checkDPhone();">Submit</button></form>';
    $("#dInput").append(currentBuild);
    $("#dInput").css({'width':'40%','padding':'10px'});
    $("#dNameLabel").css({'color':'white',
@@ -55,7 +71,7 @@ function createInfoTable()
     currentBuild += '<div class="form-group">';
     currentBuild += '<label id="uTelLabel" for="phone">Phone Number:</label>';
     currentBuild += '<input type="tel" class="form-control" id="uTelInput" placeholder="Enter phone number" name="phone"></div>';
-    currentBuild += '<button type="submit" id="uSubmit" class="btn btn-primary">Submit</button></form>';
+    currentBuild += '<button type="submit" id="uSubmit" class="btn btn-primary" onSubmit="checkUPhone();">Submit</button></form>';
     $("#uInput").append(currentBuild);
     $("#uInput").css({'width':'40%','padding':'10px'});
     $("#uNameLabel").css({'color':'white',
