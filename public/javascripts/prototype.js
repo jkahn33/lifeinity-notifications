@@ -67,18 +67,6 @@ function createInfoTable()
                         'font-weight':'100',
                         'font-size':'15px'});
     $('#dInput').css({'border-right':'5px solid white'});
-   //  currentBuild = '<button type="button" id="dSubmit" class="btn btn-primary">Submit</button>';
-   //  $('#dTelInput').append(currentBuild);
-   //  currentBuild = '<button type="button" id="uSubmit" class="btn btn-primary">Submit</button>';
-   //  $('#uTelInput').append(currentBuild);
-   //  $('#dSubmit').click(function()
-   //  {
-   //    driverSubmit();
-   //  });
-   //  $('#uSubmit').click(function()
-   //  {
-   //    userSubmit();
-   //  });
 }
 
 var currentBuild = $("<div class='footer'/>");

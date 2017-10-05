@@ -5,7 +5,7 @@ function thankYou(){
    currentBuild.append('<h1 id="thanksHeader">Thank You for Registering!</h1>')
                .append('<h3 id="moreInfo">More Info Will Come Soon!</h3>');
    currentBuild.appendTo($("body"));
-   currentBuild = $('<button type="button" id="goBack" class="btn btn-danger">Click here to register a new name or number!</button>');
+   currentBuild = $('<form action="/" method="get"><button type="submit" id="goBack" class="btn btn-danger">Click here to register a new name or number!</button></form>');
    currentBuild.appendTo($("body"));
    $('#goBack').css({'margin':'auto auto 20px',
                      'display':'block'});
