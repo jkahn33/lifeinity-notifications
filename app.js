@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/javascripts", express.static("./prototype.js"));
+app.use("/javascripts", express.static("./thankyou.js"));
 app.use("/stylesheets/bootstrap-3.3.7-dist/css", express.static("./bootstrap.min.css"));
 app.use("/stylesheets/bootstrap-social-gh-pages", express.static("./bootstrap-social.css"));
 app.use("/stylesheets/font-awesome-4.7.0/css", express.static("./font-awesome.min.css"));

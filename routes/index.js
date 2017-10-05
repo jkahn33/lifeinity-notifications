@@ -17,7 +17,7 @@ router.post('/addDriver', function(req, res){
          [req.body.name, req.body.phone]);
       done();
       console.log("Successfully added: " + req.body.name + ":" + req.body.phone);
-      res.redirect('/');
+      res.redirect('/thankyou');
    });
 });
 router.post('/addUser', function(req, res){
@@ -28,8 +28,10 @@ router.post('/addUser', function(req, res){
       client.query('INSERT INTO users(name, phone) VALUES($1, $2)',
          [req.body.name, req.body.phone]);
       done();
-      res.redirect('/');
+      res.redirect('/thankyou');
    });
 });
-
+router.get('/thankyou', function(req, res){
+   res.render('thankyou');
+});
 module.exports = router;
