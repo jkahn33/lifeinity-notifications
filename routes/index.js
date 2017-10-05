@@ -16,6 +16,7 @@ router.post('/addDriver', function(req, res){
       client.query('INSERT INTO drivers(name, phone) VALUES($1, $2)',
          [req.body.name, req.body.phone]);
       done();
+      console.log("Successfully added: " + req.body.name + ":" + req.body.phone);
       res.redirect('/');
    });
 });
