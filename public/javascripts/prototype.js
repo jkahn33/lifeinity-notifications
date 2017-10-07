@@ -4,10 +4,13 @@ var dNum;
 var cName;
 var cNum;
 function checkDPhone(){
+   console.log("inside checkDPhone");
    if(isNaN(document.dTelInput.value) === true){
+      console.log("false");
       return false;
    }
    else{
+      console.log("true");
       return true;
    }
 }
@@ -45,15 +48,18 @@ function createInfoTable()
    currentBuild = $("<tr id='inputs'/>");
    currentBuild.append($("<td id='dInput'/>"));
    $("#theTable").append(currentBuild);
-   currentBuild = '<form action="/addDriver" method="post"><div class="form-group">';
+   currentBuild = '<form id="dForm" action="/addDriver" method="post"><div class="form-group">';
    currentBuild += '<label id="dNameLabel" for="name">Name:</label>';
    currentBuild += '<input class="form-control" id="dNameInput" placeholder="Enter name" name="name">';
    currentBuild += '</div>';
    currentBuild += '<div class="form-group">';
    currentBuild += '<label id="dTelLabel" for="phone">Phone Number:</label>';
    currentBuild += '<input type="tel" class="form-control" id="dTelInput" placeholder="Enter phone number" name="phone">';
-   currentBuild += '</div><button type="submit" id="dSubmit" class="btn btn-primary" onSubmit="checkDPhone();">Submit</button></form>';
+   currentBuild += '</div><button type="submit" id="dSubmit" class="btn btn-primary">Submit</button></form>';
    $("#dInput").append(currentBuild);
+   $('#dForm').submit(function(){
+      console.log("inside check");
+   });
    $("#dInput").css({'width':'40%','padding':'10px'});
    $("#dNameLabel").css({'color':'white',
                        'font-family':'\'Questrial\', sans-serif',
