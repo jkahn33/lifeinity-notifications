@@ -1,20 +1,17 @@
 var express = require('express');
 var router = express.Router();
 var Sequelize = require('sequelize');
-
-//var sequelize = new Sequelize(process.env.DATABASE_URL);
+var sequelize = new Sequelize(process.env.DATABASE_URL);
 // var pool = new Pool();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-   console.log("URL:");
-   console.log(process.env.DATABASE_URL);
   res.render('index', { title: 'Express' });
   sequelize.authenticate().then(()=>{
-     console.log("Connection establish Successfully!");
- }).catch(err => {
-    console.error("Unable to connect to Database");
-});
+     console.log("SUCCESS: Connection establish Successfully!");
+  }).catch(err => {
+    console.error("ERROR: " + err);
+  });
 });
 
 router.post('/addDriver', function(req, res){
