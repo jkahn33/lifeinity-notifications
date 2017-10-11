@@ -18,6 +18,7 @@ router.post('/addDriver', function(req, res){
        type: Sequelize.STRING
      }
    });
+   console.log("name: " + req.body.name + " phone: " + req.body.phone);
    driver.sync().then(() => {
      return driver.create({
        name: req.body.name,
