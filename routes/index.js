@@ -7,15 +7,24 @@ var sequelize = new Sequelize(process.env.DATABASE_URL);
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
-  sequelize.authenticate().then(()=>{
-     console.log("SUCCESS: Connection establish Successfully!");
-  }).catch(err => {
-    console.error("ERROR: " + err);
-  });
 });
 
 router.post('/addDriver', function(req, res){
-   console.log("back in the post");
+   var driver = sequelize.define('drivers', {
+     name: {
+       type: Sequelize.STRING
+     },
+     phone: {
+       type: Sequelize.STRING
+     }
+   });
+   driver.sync().then(() => {
+     return driver.create({
+       name: req.body.name,
+       phone: req.body.phone
+     });
+   });
+
    // pg.connect(process.env.DATABASE_URL, function(err, client, done){
    //    if(err){
    //       return console.error("error adding to driver pool", err);
