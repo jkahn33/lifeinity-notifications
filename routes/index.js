@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/addDriver', function(req, res){
-   var driver = sequelize.define('drivers', {
+   var driver = sequelize.define('public.drivers', {
      name: {
        type: Sequelize.STRING
      },
