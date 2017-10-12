@@ -9,24 +9,15 @@ var sequelize = new Sequelize('postgres://root:abacus@localhost:5432/clientsdb')
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
-  var Driver = sequelize.define('drivers', {
-     name: {
-       type: Sequelize.STRING
-     },
-     phone: {
-       type: Sequelize.STRING
-     }
-   });
-   var User = sequelize.define('users', {
-      name: {
-        type: Sequelize.STRING
-      },
-      phone: {
-        type: Sequelize.STRING
-      }
-    });
-
-});
+  sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
+ });
 
 router.post('/addDriver', function(req, res){
    var driver = sequelize.define('drivers', {
@@ -43,29 +34,24 @@ router.post('/addDriver', function(req, res){
        phone: req.body.phone
      });
    });
-
-   // pg.connect(process.env.DATABASE_URL, function(err, client, done){
-   //    if(err){
-   //       return console.error("error adding to driver pool", err);
-   //    }
-   //    client.query('INSERT INTO drivers(name, phone) VALUES($1, $2)',
-   //       [req.body.name, req.body.phone]);
-   //    done();
-   //    console.log("Successfully added: " + req.body.name + ":" + req.body.phone);
-   //    res.redirect('/thankyou');
-   // });
-   res.redirect('/');
+   res.redirect('/thankyou');
 });
 router.post('/addUser', function(req, res){
-   pg.connect(process.env.DATABASE_URL, function(err, client, done){
-      if(err){
-         return console.error("error adding to user pool", err);
-      }
-      client.query('INSERT INTO users(name, phone) VALUES($1, $2)',
-         [req.body.name, req.body.phone]);
-      done();
-      res.redirect('/thankyou');
+   var user = sequelize.define('users', {
+     name: {
+       type: Sequelize.STRING
+     },
+     phone: {
+       type: Sequelize.STRING
+     }
    });
+   user.sync().then(() => {
+     return user.create({
+       name: req.body.name,
+       phone: req.body.phone
+     });
+   });
+   res.redirect('/thankyou');
 });
 router.get('/thankyou', function(req, res){
    res.render('thankyou');
