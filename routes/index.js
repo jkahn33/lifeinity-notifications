@@ -2,7 +2,13 @@ var express = require('express');
 var router = express.Router();
 var Sequelize = require('sequelize');
 var pg = require('pg');
-var sequelize = new Sequelize(process.env.DATABASE_URL);
+var config = {
+   "define": {
+       "createdAt": "createdat",
+       "updatedAt": "updatedat"
+     }
+};
+var sequelize = new Sequelize(process.env.DATABASE_URL, config);
 //var sequelize = new Sequelize('postgres://root:abacus@localhost:5432/clientsdb');
 // var pool = new Pool();
 
