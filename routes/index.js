@@ -1,16 +1,15 @@
 var express = require('express');
 var router = express.Router();
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize(process.env.DATABASE_URL);
+var pg = require('pg');
+// var sequelize = new Sequelize(process.env.DATABASE_URL);
+var sequelize = new Sequelize('postgres://root:abacus@localhost:5432/clientsdb');
 // var pool = new Pool();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
-});
-
-router.post('/addDriver', function(req, res){
-   var driver = sequelize.define('public.drivers', {
+  var Driver = sequelize.define('drivers', {
      name: {
        type: Sequelize.STRING
      },
@@ -18,7 +17,26 @@ router.post('/addDriver', function(req, res){
        type: Sequelize.STRING
      }
    });
-   console.log("name: " + req.body.name + " phone: " + req.body.phone);
+   var User = sequelize.define('users', {
+      name: {
+        type: Sequelize.STRING
+      },
+      phone: {
+        type: Sequelize.STRING
+      }
+    });
+
+});
+
+router.post('/addDriver', function(req, res){
+   var driver = sequelize.define('drivers', {
+     name: {
+       type: Sequelize.STRING
+     },
+     phone: {
+       type: Sequelize.STRING
+     }
+   });
    driver.sync().then(() => {
      return driver.create({
        name: req.body.name,
