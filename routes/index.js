@@ -14,15 +14,8 @@ var sequelize = new Sequelize(process.env.DATABASE_URL, config);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-  sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
+  //res.render('index', { title: 'Express' });
+  res.render('bad_phone_driver');
  });
 
 router.post('/addDriver', function(req, res){

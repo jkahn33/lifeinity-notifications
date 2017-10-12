@@ -1,0 +1,25 @@
+html.
+   <head>
+     <meta charset="utf-8">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+     <link href="/stylesheets/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+     <link href="/stylesheets/bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet" />
+     <link href="/stylesheets/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+     <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+     <script src="/javascripts/bad_phone_user.js"></script>
+     <title>Lifeinity Notification Register</title>
+     <style media="screen">
+        body{
+           background-color: #444444;
+        }
+     </style>
+     <h1 style="font-family: 'Questrial', sans-serif;color:white;text-align:center;padding-bottom:75px;">Lifeinity Notification Registery</h1>
+   </head>
+   <body>
+     <script type="text/javascript">
+       createInfoTable();
+       createSocialTable();
+     </script>
+   </body>
