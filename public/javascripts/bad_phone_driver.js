@@ -33,8 +33,8 @@ function createInfoTable()
            .append($("<th id='userHead'>Notifications for Users</th>")));
    currentBuild.appendTo($("body"));
    var currentBuild = $('<div class="alert alert-danger"id="dBadPhone"role="alert"/>');
-   currentBuild.append($('<strong>Whoops!</strong> Please make sure you have entered a valid phone number.'));
-   $('#theTable').append(currentBuild);
+   currentBuild.append($('<strong>Please make sure you have entered a valid phone number.</strong>'));
+   $(currentBuild).insertAfter('#theTable');
    $('#theTable').css({'width':'100%'});
    $("#driverHead").css({'color':'white',
                          'font-family':'\'Questrial\', sans-serif',

@@ -26,14 +26,14 @@ function createInfoTable()
 {
    dName = false;
    var box;
-   var currentBuild = $('<div class="alert alert-danger"id="uBadPhone"role="alert"/>');
-   currentBuild.append($('<strong>Whoops!</strong> Please make sure you have entered a valid phone number.'));
-   $('h3').append(currentBuild);
    currentBuild = $("<table id='theTable'/>");
    currentBuild.append($("<tr/>")
            .append($("<th id='driverHead'>Notifications for Drivers</th>"))
            .append($("<th id='userHead'>Notifications for Users</th>")));
    currentBuild.appendTo($("body"));
+   var currentBuild = $('<div class="alert alert-danger"id="uBadPhone"role="alert"/>');
+   currentBuild.append($('<strong>Please make sure you have entered a valid phone number.</strong>'));
+   $(currentBuild).insertAfter('#theTable');
    $('#theTable').css({'width':'100%'});
    $("#driverHead").css({'color':'white',
                          'font-family':'\'Questrial\', sans-serif',
