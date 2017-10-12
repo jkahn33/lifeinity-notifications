@@ -24,7 +24,7 @@ function checkUPhone(){
 }
 function createInfoTable()
 {
-
+   //test comment
    dName = false;
    var box;
    currentBuild = $("<table id='theTable'/>");
