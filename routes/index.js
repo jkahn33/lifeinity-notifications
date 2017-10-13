@@ -8,8 +8,8 @@ var config = {
        "updatedAt": "updatedat"
      }
 };
-//var sequelize = new Sequelize(process.env.DATABASE_URL, config);
-var sequelize = new Sequelize('postgres://root:abacus@localhost:5432/clientsdb');
+var sequelize = new Sequelize(process.env.DATABASE_URL, config);
+//var sequelize = new Sequelize('postgres://root:abacus@localhost:5432/clientsdb');
 // var pool = new Pool();
 
 /* GET home page. */
