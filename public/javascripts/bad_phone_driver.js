@@ -29,8 +29,8 @@ function createInfoTable()
    var box;
    currentBuild = $("<table id='theTable'/>");
    currentBuild.append($("<tr/>")
-           .append($("<th id='driverHead'>Notifications for Drivers</th>"))
-           .append($("<th id='userHead'>Notifications for Users</th>")));
+           .append($("<th id='driverHead'>Register as a Driver</th>"))
+           .append($("<th id='userHead'>Register as a User</th>")));
    currentBuild.appendTo($("body"));
    var currentBuild = $('<div class="alert alert-danger"id="dBadPhone"role="alert"/>');
    currentBuild.append($('<strong>Please make sure you have entered a valid phone number.</strong>'));
