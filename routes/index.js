@@ -20,31 +20,26 @@ router.get('/', function(req, res, next) {
 router.post('/addDriver', function(req, res){
    if(isNaN(parseInt(req.body.phone)))
    {
-      console.log("nan");
       res.render('bad_phone_driver');
    }
    else{
       if(req.body.phone.length > 11)
       {
-         console.log("greater than 11");
          res.render('bad_phone_driver');
       }
       if(req.body.phone.length === 11)
       {
-         console.log("equals 11");
          if(req.body.phone.charAt(0) !== '1')
          {
-            console.log("does not equal 1");
             res.render('bad_phone_driver');
          }
       }
-      if(req.body.length < 10)
+      if(req.body.phone.length < 10)
       {
-         console.log("less than 10");
-         res.render('bad_phone_driver')
+         res.render('bad_phone_driver');
       }
-      else{
-         console.log("ok");
+      else
+      {
          var driver = sequelize.define('drivers', {
            name: {
              type: Sequelize.STRING
