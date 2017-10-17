@@ -14,7 +14,6 @@ var sequelize = new Sequelize(process.env.DATABASE_URL, config);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-   console.log(process.env.DATABASE_URL);
   res.render('index');
  });
 
