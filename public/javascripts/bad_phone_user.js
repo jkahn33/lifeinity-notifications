@@ -35,7 +35,7 @@ function createInfoTable()
    var currentBuild = $('<div class="alert alert-danger"id="uBadPhone"role="alert"/>');
    currentBuild.append($('<strong>Please make sure you have entered a valid phone number.</strong>'));
    $(currentBuild).insertAfter('#theTable');
-   $('#uBadPhone').css({'width':'425px', 'margin-left':'51.5%'})
+   $('#uBadPhone').css({'width':'425px', 'margin-left':'51.5%'});
    $('#theTable').css({'width':'100%'});
    $("#driverHead").css({'color':'white',
                          'font-family':'\'Questrial\', sans-serif',
